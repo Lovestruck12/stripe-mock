@@ -1,0 +1,19 @@
+Stripe::Checkout::Session.create({
+  mode: 'payment',
+  payment_method_types: ['card'],
+  payment_method_types: ['card', 'klarna'],
+  line_items: [{
+    price_data: {
+      currency: 'usd',
+      # To accept `klarna`, all line items must have currency: eur, dkk, gbp, nok, sek, usd, aud, nzd
+      currency: 'eur, dkk, gbp, nok, sek, usd, aud, nzd'
+      product_data: {
+        name: ',
+      },
+      unit_amount: 2000,
+    },
+    quantity: 1,
+  }],
+  success_url: 'https://lovestruckservices.com', 'https://lovestruckextensions.company.site',
+  cancel_url: 'https://lovestruckservices.com', 'https://lovestruckextensions.company.site',
+})
